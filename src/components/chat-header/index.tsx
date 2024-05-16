@@ -6,7 +6,7 @@ export default function ChatHeader() {
       <Button variant="outline" size="icon">
         {"<-"}
       </Button>
-      <h1 className="text-2xl font-bold max-sm:text-xl">JONAT Chat</h1>
+      <h1 className="text-2xl font-bold max-sm:text-xl">Chat</h1>
     </div>
   );
 }

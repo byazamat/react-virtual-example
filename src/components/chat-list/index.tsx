@@ -2,12 +2,10 @@ import { useCallback, useRef, useState } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 
 import { ChatListProps } from "./chat-list.type";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { useGetMessages } from "@/src/fake-api";
-import MessageItem from "../message-item";
 import { MessageType, UserType } from "../message-item/message-item.type";
 import { Button } from "@/components/ui/button";
-import MessageItemSkeleton from "../message-item-skeleton";
+import MessageItem from "../message-item";
 
 const USERS: [UserType, UserType] = [
   { id: "0", name: "Petr" },
@@ -28,7 +26,6 @@ export default function ChatList(props: ChatListProps) {
     paddingStart: 16,
     paddingEnd: 16,
     overscan: 5,
-    // scrollMargin: 100,
     getItemKey: useCallback((index: number) => list[index].id, [list]),
   });
   const items = virtualizer.getVirtualItems();
@@ -58,11 +55,6 @@ export default function ChatList(props: ChatListProps) {
     } catch (error) {
       console.log(error);
     }
-  };
-
-  const onRecalc = () => {
-    console.log(virtualizer.scrollOffset);
-    console.log(virtualizer.getTotalSize());
   };
 
   return (

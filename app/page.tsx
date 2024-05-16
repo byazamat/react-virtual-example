@@ -27,7 +27,7 @@ export default function Home() {
       style={{ height: `${screenHeight}px` }}
     >
       <ChatHeader />
-      <ChatList listHeight={screenHeight - 84} />
+      {screenHeight > 0 ? <ChatList listHeight={screenHeight - 84} /> : null}
     </main>
   );
 }
